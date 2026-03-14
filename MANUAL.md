@@ -1,6 +1,6 @@
 # Extracting Source URLs from Wikimedia Commons to Stadsarchief Amsterdam Beeldbank
 
-This manual documents a two-step pipeline for linking Wikimedia Commons file pages to their original source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/).
+This manual documents a pipeline for linking Wikimedia Commons file pages to their original source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/) and extracting their full metadata.
 
 ## Overview
 
@@ -11,6 +11,7 @@ This pipeline:
 1. **Extracts** the source URL from each Commons file page (`extract_sources.py`)
 2. **Transforms** old `beeldbank.amsterdam.nl` URLs into new `archief.amsterdam` search URLs (inline in the Excel)
 3. **Resolves** each search URL to the canonical detail page URL via the Memorix API (`add_detail_urls.py`)
+4. **Extracts full metadata** (title, date, description, location, etc.) from the Memorix API (`add_metadata.py`)
 
 ## Prerequisites
 
@@ -112,6 +113,25 @@ This will:
 
 **Runtime**: ~30 minutes for 3600 files (0.5s delay per request).
 
+### Step 5: Extract full metadata from the Memorix API
+
+Run:
+
+```
+python add_metadata.py
+```
+
+This will:
+- Read column D ("Archief Amsterdam URL") to get each record's identifier
+- Query the **Memorix Mediabank API** for the full metadata of each record
+- Write 13 metadata fields to columns G–S
+
+Multi-value fields (e.g. multiple buildings or streets) are formatted as semicolon-separated double-quoted strings: `"Frankendael"; "Munttoren"`.
+
+The nested "Geografische aanduiding" field is flattened to label-value pairs: `"Straat: Keizersgracht"; "Buurt: Grachtengordel-West"`.
+
+**Runtime**: ~30 minutes for 3600 files (0.5s delay per request).
+
 ## Final Excel structure
 
 | Column | Header | Example |
@@ -121,6 +141,20 @@ This will:
 | C | Source URL | `http://beeldbank.amsterdam.nl/afbeelding/010019000001` |
 | D | Archief Amsterdam URL | `https://archief.amsterdam/beeldbank/?mode=gallery&view=horizontal&q=010019000001&rows=1&page=1` |
 | E | Archief Amsterdam Detail URL | `https://archief.amsterdam/beeldbank/detail/bf2bc41b-9441-9049-1f28-5012c8617cc3` |
+| F | Beta Archief Amsterdam Detail URL | `https://beta.archief.amsterdam/detail/bf2bc41b-9441-9049-1f28-5012c8617cc3` |
+| G | Titel (dc_title) | `Amstel 51-55 enz. (v.l.n.r.)` |
+| H | Beschrijving (dc_description) | `Gezien in noordelijke richting naar Amstelsluizen...` |
+| I | Datering (dc_date) | `augustus 1904` |
+| J | Documenttype (sk_documenttype) | `foto` |
+| K | Vervaardiger (sk_vervaardiger) | `Olie, Jacob (1834-1905)` |
+| L | Collectie (dc_provenance) | `Collectie Jacob Olie Jbz.` |
+| M | Geografische aanduiding (geografische_aanduiding) | `"Straat: Amstel"` |
+| N | Gebouw (sk_gebouw) | `"Frankendael"; "Munttoren"` |
+| O | Inventarissen (dc_source) | `http://archief.amsterdam/archief/10019/...` |
+| P | Afbeeldingsbestand (identifier) | `010019000001` |
+| Q | Rechthebbende (sr_rechthebbende) | `Auteursrechtvrij` |
+| R | Gebruiksvoorwaarden (sr_leveringsvoorwaarden) | `-` |
+| S | Kwaliteit (quality) | `Hoog` |
 
 ## Adapting for other collections
 
@@ -186,11 +220,12 @@ Key fields:
 - `media[0].id` — the record UUID, used in the detail page URL
 - `media[0].asset[0].thumb` — thumbnail image URLs at various sizes
 - `media[0].title` / `media[0].description` — record metadata
+- `media[0].metadata` — array of metadata field objects, each with `field`, `label`, and `value` keys (see the metadata fields table in "Final Excel structure" above)
 
 ## Rate limiting and etiquette
 
 - **Wikimedia Commons API** (step 2): batches of 50, 1 second between batches. See the [API etiquette guidelines](https://www.mediawiki.org/wiki/API:Etiquette).
-- **Memorix API** (step 4): 1 request per 0.5 seconds. There is no documented rate limit, so we err on the side of caution.
+- **Memorix API** (steps 4 and 5): 1 request per 0.5 seconds. There is no documented rate limit, so we err on the side of caution.
 - Both scripts set a descriptive `User-Agent` header that identifies the project, as required by Wikimedia and good practice for any API.
 
 ## Troubleshooting
@@ -208,3 +243,4 @@ Key fields:
 |---|---|
 | `extract_sources.py` | Step 2 — Extract source URLs from Wikimedia Commons `{{Photograph}}` templates |
 | `add_detail_urls.py` | Step 4 — Resolve identifiers to Beeldbank detail page URLs via the Memorix API |
+| `add_metadata.py` | Step 5 — Extract 13 metadata fields from the Memorix API for each record |

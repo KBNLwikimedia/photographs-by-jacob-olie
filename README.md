@@ -10,7 +10,7 @@ The old Beeldbank URLs (e.g. `http://beeldbank.amsterdam.nl/afbeelding/10019A001
 
 **Input**: a list of Wikimedia Commons filenames (`filelist.txt`)
 
-**Output**: an Excel workbook (`jacob_olie_sources.xlsx`) with five columns:
+**Output**: an Excel workbook (`jacob_olie_sources.xlsx`) with 19 columns:
 
 | Column | Content |
 |---|---|
@@ -19,6 +19,20 @@ The old Beeldbank URLs (e.g. `http://beeldbank.amsterdam.nl/afbeelding/10019A001
 | Source URL | Original source URL from the `{{Photograph}}` template |
 | Archief Amsterdam URL | Transformed search URL on `archief.amsterdam` |
 | Archief Amsterdam Detail URL | Canonical detail page URL with UUID |
+| Beta Archief Amsterdam Detail URL | Detail page URL on `beta.archief.amsterdam` |
+| Titel (dc_title) | Title of the photograph |
+| Beschrijving (dc_description) | Description |
+| Datering (dc_date) | Date of the photograph |
+| Documenttype (sk_documenttype) | Document type (e.g. "foto") |
+| Vervaardiger (sk_vervaardiger) | Creator |
+| Collectie (dc_provenance) | Collection name |
+| Geografische aanduiding (geografische_aanduiding) | Geographic location (street, area) |
+| Gebouw (sk_gebouw) | Building name(s) |
+| Inventarissen (dc_source) | Link to the archival inventory |
+| Afbeeldingsbestand (identifier) | Image file identifier |
+| Rechthebbende (sr_rechthebbende) | Rights holder |
+| Gebruiksvoorwaarden (sr_leveringsvoorwaarden) | Usage conditions |
+| Kwaliteit (quality) | Image quality |
 
 ## Quick start
 
@@ -32,6 +46,9 @@ python extract_sources.py
 
 # Step 3: Resolve to detail page URLs via the Memorix API
 python add_detail_urls.py
+
+# Step 4: Extract full metadata from the Memorix API
+python add_metadata.py
 ```
 
 ## Scripts
@@ -40,6 +57,7 @@ python add_detail_urls.py
 |---|---|
 | [`extract_sources.py`](extract_sources.py) | Queries the MediaWiki API to extract source URLs from `{{Photograph}}` templates on Commons file pages. Processes in batches of 50 with rate limiting. |
 | [`add_detail_urls.py`](add_detail_urls.py) | Queries the Memorix Mediabank API to resolve Stadsarchief Amsterdam identifiers to detail page UUIDs. |
+| [`add_metadata.py`](add_metadata.py) | Queries the Memorix Mediabank API to extract 13 metadata fields (title, date, description, location, etc.) for each record. |
 
 ## Documentation
 
@@ -48,7 +66,7 @@ See **[MANUAL.md](MANUAL.md)** for detailed usage instructions, including how to
 ## APIs used
 
 - **[MediaWiki Action API](https://www.mediawiki.org/wiki/API:Main_page)** — to fetch wikitext from Wikimedia Commons (batched, with proper User-Agent)
-- **[Memorix Mediabank API](https://webservices.memorix.nl/mediabank/)** by [Vitec](https://www.vitec-memorix.com/) — to resolve record identifiers to UUIDs (public API key, embedded in the Beeldbank page source)
+- **[Memorix Mediabank API](https://webservices.memorix.nl/mediabank/)** by [Vitec](https://www.vitec-memorix.com/) — to resolve record identifiers to UUIDs and extract metadata (public API key, embedded in the Beeldbank page source)
 
 ## Rate limiting
 
