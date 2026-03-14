@@ -7,9 +7,9 @@
 [![Memorix Mediabank API](https://img.shields.io/badge/API-Memorix_Mediabank-orange.svg)](https://webservices.memorix.nl/mediabank/)
 [![Wikimedia Commons](https://img.shields.io/badge/Wikimedia-Commons-069.svg)](https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie)
 
-# Photographs by Jacob Olie — Wikimedia Commons to Stadsarchief Amsterdam link rot fixer
+# Photographs by Jacob Olie — Wikimedia Commons to Stadsarchief Amsterdam link rot fixer and metadata extactor
 
-Tool (3 Python scripts) for fixing outdated, broken source links in 3.600 [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie) file pages of photographs by [Jacob Olie](https://en.wikipedia.org/wiki/Jacob_Olie) (1834–1905) to their current source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/).
+For [3.600 Commons photos]((https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie)) by [Jacob Olie](https://en.wikipedia.org/wiki/Jacob_Olie) (1834–1905), this tool fixes outdated, broken source links to their current source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/), and extracts descriptive metadata from those records. 
 
 Jacob Olie was an Amsterdam photographer whose extensive body of work — street scenes, cityscapes, and portraits — is a key visual record of late-19th-century Amsterdam. Over 3,600 of his photographs are available on Wikimedia Commons, with source references pointing to the Stadsarchief Amsterdam collection.
 
