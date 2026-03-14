@@ -1,3 +1,6 @@
+<a href="https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg" align="right" width="60" alt="Wikimedia Commons logo"></a>
+<a href="https://archief.amsterdam/"><img src="https://archief.amsterdam/templates/ams/img/gemeente-amsterdam-stadsarchief.png" align="right" width="120" alt="Stadsarchief Amsterdam logo"></a>
+
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![MediaWiki API](https://img.shields.io/badge/API-MediaWiki-006699.svg)](https://www.mediawiki.org/wiki/API:Main_page)
