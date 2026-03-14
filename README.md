@@ -1,12 +1,18 @@
-# Photographs by Jacob Olie — Wikimedia Commons to Stadsarchief Amsterdam linker
+# Photographs by Jacob Olie — Wikimedia Commons to Stadsarchief Amsterdam link rot fixer
 
-Tools for linking [Wikimedia Commons](https://commons.wikimedia.org/) file pages of photographs by [Jacob Olie](https://en.wikipedia.org/wiki/Jacob_Olie) (1834–1905) to their original source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/).
+Tool (3 Python scripts) for fixing broken source links in 3.600 [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie) file pages of photographs by [Jacob Olie](https://en.wikipedia.org/wiki/Jacob_Olie) (1834–1905) to their current source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/).
 
 Jacob Olie was an Amsterdam photographer whose extensive body of work — street scenes, cityscapes, and portraits — is a key visual record of late-19th-century Amsterdam. Over 3,600 of his photographs are available on Wikimedia Commons, with source references pointing to the Stadsarchief Amsterdam collection.
 
 ## What this does
 
-The old Beeldbank URLs (e.g. `http://beeldbank.amsterdam.nl/afbeelding/10019A001542`) embedded in the `{{Photograph}}` templates on Commons no longer resolve to the correct pages. This pipeline extracts those URLs and resolves them to the new canonical detail page URLs on `archief.amsterdam`.
+This tool/pipeline can do 3 things:
+
+1) The old Beeldbank URLs (e.g. `http://beeldbank.amsterdam.nl/afbeelding/10019A001542`) embedded in the `{{Photograph}}` templates on Commons ([example](https://commons.wikimedia.org/w/index.php?title=File:%27s-Graveland_Jacob_Olie_(max_res).jpg&action=edit&section=1)) no longer resolve to the correct pages in the Stadsarchief Amsterdam image bank. This pipeline extracts those URLs and resolves them to the new persistent detail page URLs on `beta.archief.amsterdam`.
+
+2) From those new detail pages, descriptive, structured metadata fields are extracted and added to the Excel, see column details below. 
+
+3) This pipeline can easily be adapted for other collections from Stadsarchief Amsterdam, or other Memorix-based archives, see **[MANUAL.md](MANUAL.md)** for detailed usage instructions.
 
 **Input**: a list of Wikimedia Commons filenames (`filelist.txt`)
 
