@@ -10,7 +10,7 @@ This tool/pipeline can do 3 things:
 
 1) The old Beeldbank URLs (e.g. `http://beeldbank.amsterdam.nl/afbeelding/10019A001542`) embedded in the `{{Photograph}}` templates on Commons ([example](https://commons.wikimedia.org/w/index.php?title=File:%27s-Graveland_Jacob_Olie_(max_res).jpg&action=edit&section=1)) no longer resolve to the correct pages in the Stadsarchief Amsterdam image bank. This pipeline extracts those URLs and resolves them to the new persistent detail page URLs on `beta.archief.amsterdam`.
 
-2) From those new detail pages, descriptive, structured metadata fields are extracted and added to the Excel, see column details below. 
+2) From those new detail pages, 13 descriptive, structured metadata fields are extracted and added to the Excel, see column details below. 
 
 3) This pipeline can easily be adapted for other collections from Stadsarchief Amsterdam, or other Memorix-based archives, see **[MANUAL.md](MANUAL.md)** for detailed usage instructions.
 
