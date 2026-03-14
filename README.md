@@ -1,3 +1,9 @@
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![MediaWiki API](https://img.shields.io/badge/API-MediaWiki-006699.svg)](https://www.mediawiki.org/wiki/API:Main_page)
+[![Memorix Mediabank API](https://img.shields.io/badge/API-Memorix_Mediabank-orange.svg)](https://webservices.memorix.nl/mediabank/)
+[![Wikimedia Commons](https://img.shields.io/badge/Wikimedia-Commons-069.svg)](https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie)
+
 # Photographs by Jacob Olie — Wikimedia Commons to Stadsarchief Amsterdam link rot fixer
 
 Tool (3 Python scripts) for fixing outdated, broken source links in 3.600 [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Photographs_by_Jacob_Olie) file pages of photographs by [Jacob Olie](https://en.wikipedia.org/wiki/Jacob_Olie) (1834–1905) to their current source records on the [Stadsarchief Amsterdam Beeldbank](https://archief.amsterdam/beeldbank/).
