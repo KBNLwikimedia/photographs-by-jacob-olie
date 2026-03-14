@@ -10,6 +10,21 @@ Tool (3 Python scripts) for fixing outdated, broken source links in 3.600 [Wikim
 
 Jacob Olie was an Amsterdam photographer whose extensive body of work — street scenes, cityscapes, and portraits — is a key visual record of late-19th-century Amsterdam. Over 3,600 of his photographs are available on Wikimedia Commons, with source references pointing to the Stadsarchief Amsterdam collection.
 
+<table>
+<tr>
+<td><a href="https://archief.amsterdam/beeldbank/detail/81937863-e93c-44c6-05a0-60e9172690d0"><img src="https://images.memorix.nl/ams/thumb/640x480/e1b75a85-93dc-09fd-fee9-c6d3e0d17691.jpg" width="200" alt="Damrak 38-41"></a><br><sub>Damrak 38-41</sub></td>
+<td><a href="https://archief.amsterdam/beeldbank/detail/0626a614-7fe5-91fb-0ffc-102c3480d26e"><img src="https://images.memorix.nl/ams/thumb/640x480/86328899-d271-6876-018a-dbc9bb7178a3.jpg" width="200" alt="Keizersgracht"></a><br><sub>Keizersgracht</sub></td>
+<td><a href="https://archief.amsterdam/beeldbank/detail/5fadade3-3819-6d6a-4b35-88d71fda2721"><img src="https://images.memorix.nl/ams/thumb/640x480/12d20b8d-dda9-cb95-b6d3-3dbed0e3682c.jpg" width="200" alt="Vondelpark, sneeuwlandschap"></a><br><sub>Vondelpark, sneeuwlandschap</sub></td>
+</tr>
+<tr>
+<td><a href="https://archief.amsterdam/beeldbank/detail/2695b3d1-64ba-9fd5-0c9f-cf4da8d2c06b"><img src="https://images.memorix.nl/ams/thumb/640x480/f7312844-14e6-3ee0-be25-ecd73c3d3284.jpg" width="200" alt="Dam-noordzijde"></a><br><sub>Dam-noordzijde</sub></td>
+<td><a href="https://archief.amsterdam/beeldbank/detail/c265965b-ac4c-50a7-3f60-71cdd03f1699"><img src="https://images.memorix.nl/ams/thumb/640x480/e081c848-c7bd-3a5f-7c11-cb945ab5f597.jpg" width="200" alt="Amstel bij Magere Brug"></a><br><sub>Amstel bij Magere Brug</sub></td>
+<td><a href="https://archief.amsterdam/beeldbank/detail/94793b47-0002-a64c-66d8-a11485a54ae6"><img src="https://images.memorix.nl/ams/thumb/640x480/7126733f-7d38-0689-aca8-07dd318ecf0c.jpg" width="200" alt="Centraal Station"></a><br><sub>Centraal Station</sub></td>
+</tr>
+</table>
+
+<sub>Example photographs by Jacob Olie, from the Stadsarchief Amsterdam collection. Click to view on the Beeldbank.</sub>
+
 ## What this does
 
 This tool/pipeline can do 3 things:
